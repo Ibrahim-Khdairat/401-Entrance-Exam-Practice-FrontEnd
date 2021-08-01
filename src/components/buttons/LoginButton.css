@@ -1,0 +1,12 @@
+.login {
+    border-radius: 10px;
+    width: 80px;
+    background-color: rgb(77, 230, 77);
+}
+
+
+.login:hover {
+    transform:scale(1.2);
+    background-color: rgb(42, 206, 21);
+}
+

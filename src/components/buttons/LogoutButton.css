@@ -1,0 +1,11 @@
+.logout {
+    border-radius: 10px;
+    width: 80px;
+    background-color: rgb(255, 73, 73);
+}
+
+
+.logout:hover {
+    transform:scale(1.2);
+    background-color: rgb(255, 35, 35);
+}
