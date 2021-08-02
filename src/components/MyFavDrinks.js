@@ -22,7 +22,9 @@ class MyFavDrinks extends React.Component {
         const { user, isAuthenticated } = this.props.auth0;
 
         if (isAuthenticated) {
-            let url = `http://localhost:3002/userDrinks/${user.email}`;
+            // let url = `http://localhost:3002/userDrinks/${user.email}`;
+            let url = `https://exam-practicing-401.herokuapp.com/userDrinks/${user.email}`;
+
             let favDrinks = await axios.get(url);
             this.setState({
                 myFavDrink: favDrinks.data,
@@ -33,7 +35,10 @@ class MyFavDrinks extends React.Component {
     }
 
     delete = async (index) => {
-        let url = `http://localhost:3002/deleteDrink/${this.state.email}?index=${index}`;
+        // let url = `http://localhost:3002/deleteDrink/${this.state.email}?index=${index}`;
+        let url = `https://exam-practicing-401.herokuapp.com/deleteDrink/${this.state.email}?index=${index}`;
+
+      
         let favDrinks = await axios.delete(url);
         this.setState({
             myFavDrink: favDrinks.data
@@ -73,7 +78,10 @@ class MyFavDrinks extends React.Component {
             drinkId: event.target.id.value
         }
 
-        let url = `http://localhost:3002/updateDrink/${this.state.email}?index=${this.state.index}`;
+        // let url = `http://localhost:3002/updateDrink/${this.state.email}?index=${this.state.index}`;
+        
+        let url = `https://exam-practicing-401.herokuapp.com/updateDrink/${this.state.email}?index=${this.state.index}`;
+
         let updated = await axios.put(url , updatedObj)
         this.setState({
             myFavDrink: updated.data,

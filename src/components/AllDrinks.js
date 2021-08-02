@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Card, Button } from 'react-bootstrap/';
-import axios from 'axios'
+import axios from 'axios';
 // import Jumbotron from 'react-bootstrap/Jumbotron';
 import './AllDrinks.css';
 
@@ -20,7 +20,11 @@ class AllDrinks extends React.Component {
   componentDidMount = async () => {
     const { user } = this.props.auth0;
 
-    let url = 'http://localhost:3002/drinks';
+    // let url = `http://localhost:3002/drinks`;
+    // let url = `${process.env.REACT_APP_HEROKU_LINK}/drinks`;
+    let url = `https://exam-practicing-401.herokuapp.com/drinks`;
+
+
 
     let allDrinksData = await axios.get(url);
     this.setState({
@@ -34,7 +38,9 @@ class AllDrinks extends React.Component {
 
   addToFav = async (index) => {
 
-    let url = `http://localhost:3002/addToFav?userEmail=${this.state.email}`;
+    // let url = `http://localhost:3002/addToFav?userEmail=${this.state.email}`;
+        let url = `https://exam-practicing-401.herokuapp.com/addToFav?userEmail=${this.state.email}`;
+
     let selected = {
       drinkName: this.state.allDrinksArray[index].strDrink,
       drinkImg: this.state.allDrinksArray[index].strDrinkThumb,
